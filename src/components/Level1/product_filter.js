@@ -4,6 +4,7 @@ import { containerInStyle, containerOutStyle } from "../../data/styles"
 import Filters from "../Level0/filters"
 import Product from "../Level0/product"
 import Products from "../Level0/products"
+import Img from "gatsby-image"
 
 class ProductFilter extends React.Component {
   constructor(props) {
@@ -59,8 +60,10 @@ class ProductFilter extends React.Component {
     `
     const productsStyle = css`
       grid-column: 2/3;
-      background-color: magenta;
+      /* background-color: magenta; */
     `
+
+    console.log("battery images", this.props.batteryImages)
     return (
       <div css={wrapperStyle}>
         <div css={filtersStyle}>
@@ -70,7 +73,10 @@ class ProductFilter extends React.Component {
           />
         </div>
         <div css={productsStyle}>
-          <Products products={this.state.products} />
+          <Products
+            products={this.state.products}
+            images={this.props.batteryImages}
+          />
         </div>
       </div>
     )

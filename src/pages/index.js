@@ -6,12 +6,26 @@ import ProductFilter from "../components/Level1/product_filter"
 const IndexPage = props => {
   const allBatteryData = props.data.allBattery.edges
   const allCarData = props.data.allCar.edges
-  console.log(allBatteryData)
+  //create image hash table
+  let images_quantity = props.data.allBatteryImage.edges.length
+  let allBatteryImageData = {}
+  let key = ""
+  for (let i = 0; i < images_quantity; i++) {
+    key = props.data.allBatteryImage.edges[
+      i
+    ].node.childImageSharp.fluid.originalName.split(".")[0]
+    allBatteryImageData[key] =
+      props.data.allBatteryImage.edges[i].node.childImageSharp.fluid
+  }
   return (
     <>
       <SEO title="Home" />
       <h1>Hi, this is the home page</h1>
-      <ProductFilter batteryData={allBatteryData} carData={allCarData} />
+      <ProductFilter
+        batteryData={allBatteryData}
+        batteryImages={allBatteryImageData}
+        carData={allCarData}
+      />
     </>
   )
 }
@@ -27,6 +41,22 @@ export const query = graphql`
           brand
           amp
           price
+        }
+      }
+    }
+
+    allBatteryImage: allFile(
+      filter: { sourceInstanceName: { eq: "battery_images" } }
+      sort: { fields: name, order: ASC }
+    ) {
+      edges {
+        node {
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid_tracedSVG
+              originalName
+            }
+          }
         }
       }
     }
