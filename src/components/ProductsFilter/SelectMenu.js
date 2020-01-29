@@ -2,20 +2,17 @@ import React from "react"
 import { css } from "@emotion/core"
 import gsap from "gsap"
 
+//design parameters
 const boxHeight = 25
 const boxWidth = 100
 
 class SelectMenu extends React.Component {
   constructor(props) {
     super(props)
-    // this.state = { activeIndex: this.props.initialIndex }
     this.renderArrrow = this.renderArrrow.bind(this)
     this.renderOptions = this.renderOptions.bind(this)
-    // this.update = this.update.bind(this)
-    // this.down = this.down.bind(this)
     this.handleClickUp = this.handleClickUp.bind(this)
     this.handleClickDown = this.handleClickDown.bind(this)
-
     this.optionSVG = null
   }
 
@@ -47,9 +44,6 @@ class SelectMenu extends React.Component {
       background-color: red;
       display: block;
       margin: 0 auto;
-      /* vertical-align: middle; */
-      /* width: 180px;
-      height: 10px; */
     `
 
     if (direction === "up") {
@@ -89,8 +83,6 @@ class SelectMenu extends React.Component {
       display: block;
       background-color: yellowgreen;
       margin: 0;
-      /* font-size: 2rem;
-    line-height: 1.2; */
     `
 
     const optionTextStyle = css`
