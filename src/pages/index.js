@@ -2,8 +2,10 @@ import React from "react"
 import SEO from "../components/seo"
 import { graphql } from "gatsby"
 import ProductFilter from "../components/Level1/product_filter"
+import ProductsFilter from "../components/ProductsFilter/products_filter"
 
 const IndexPage = props => {
+  //data organizing
   const allBatteryData = props.data.allBattery.edges
   const allCarData = props.data.allCar.edges
   //create image hash table
@@ -17,11 +19,17 @@ const IndexPage = props => {
     allBatteryImageData[key] =
       props.data.allBatteryImage.edges[i].node.childImageSharp.fluid
   }
+
   return (
     <>
       <SEO title="Home" />
       <h1>Hi, this is the home page</h1>
       <ProductFilter
+        batteryData={allBatteryData}
+        batteryImages={allBatteryImageData}
+        carData={allCarData}
+      />
+      <ProductsFilter
         batteryData={allBatteryData}
         batteryImages={allBatteryImageData}
         carData={allCarData}

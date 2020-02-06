@@ -6,48 +6,18 @@ class FilterAmps extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = { selectedIndex: 0 }
-    this.upUpdater = this.upUpdater.bind(this)
-    this.downUpdater = this.downUpdater.bind(this)
-  }
-
-  upUpdater() {
-    this.setState(
-      prevState => ({
-        selectedIndex:
-          (((prevState.selectedIndex + 1) % this.props.options.length) +
-            this.props.options.length) %
-          this.props.options.length,
-      }),
-      () =>
-        this.props.onOptionsChange([
-          this.props.options[this.state.selectedIndex],
-        ])
-    )
-  }
-
-  downUpdater() {
-    this.setState(
-      prevState => ({
-        selectedIndex:
-          (((prevState.selectedIndex - 1) % this.props.options.length) +
-            this.props.options.length) %
-          this.props.options.length,
-      }),
-      () =>
-        this.props.onOptionsChange([
-          this.props.options[this.state.selectedIndex],
-        ])
-    )
+    // this.state = { selectedIndex: 0 }
+    // this.upUpdater = this.upUpdater.bind(this)
+    // this.downUpdater = this.downUpdater.bind(this)
   }
 
   render() {
     return (
       <SelectMenu
-        activeIndex={this.state.selectedIndex}
+        activeIndex={this.props.selectedIndex}
         options={this.props.options}
-        up={this.upUpdater}
-        down={this.downUpdater}
+        up={this.props.up}
+        down={this.props.down}
       />
     )
   }

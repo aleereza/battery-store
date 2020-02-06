@@ -15,8 +15,6 @@ class AboutPage extends React.Component {
       <>
         <SEO title="About" />
         <h1>About page</h1>
-        <p>the selected option is: {options[this.state.selectedIndex]}</p>
-        <p>the selected index is: {this.state.selectedIndex}</p>
         <p>test new ProductsFilter component:</p>
         <FilterCollector />
       </>

@@ -17,6 +17,7 @@ class SelectMenu extends React.Component {
   }
 
   componentDidUpdate() {
+    console.log("component updated!", this.props.activeIndex)
     gsap.to(
       this.optionSVG,
       0.2,
@@ -31,10 +32,12 @@ class SelectMenu extends React.Component {
   }
 
   handleClickUp() {
-    this.props.up()
+    console.log("inside up")
+    this.props.up(this.props.options.length)
   }
   handleClickDown() {
-    this.props.down()
+    console.log("inside down")
+    this.props.down(this.props.options.length)
   }
 
   renderArrrow(direction) {
@@ -100,7 +103,7 @@ class SelectMenu extends React.Component {
         ref={element => (this.optionSVG = element)}
       >
         {options.map((option, index) => (
-          <g>
+          <g key={index}>
             <text
               css={optionTextStyle}
               x={`${boxWidth / 2}`}
