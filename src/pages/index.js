@@ -3,6 +3,7 @@ import SEO from "../components/seo"
 import { graphql } from "gatsby"
 import ProductFilter from "../components/Level1/product_filter"
 import ProductsFilter from "../components/ProductsFilter/products_filter"
+import Banner from "../components/banner"
 
 const IndexPage = props => {
   //data organizing
@@ -23,7 +24,9 @@ const IndexPage = props => {
   return (
     <>
       <SEO title="Home" />
+      <Banner />
       <h1>Hi, this is the home page</h1>
+      <h1> ۱۲۳۴۵این صفحه خانگی سایت است</h1>
       <ProductFilter
         batteryData={allBatteryData}
         batteryImages={allBatteryImageData}

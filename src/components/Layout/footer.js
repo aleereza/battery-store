@@ -1,17 +1,12 @@
 import React from "react"
-import { css } from "@emotion/core"
-import { containerInStyle, containerOutStyle } from "../../data/styles"
-
-const footerStyle = css`
-  position: fixed;
-  bottom: 0;
-  background-color: lightgray;
-`
+import { Container, Typography } from "@material-ui/core"
 
 const Footer = () => (
-  <footer css={[containerOutStyle, footerStyle]}>
-    <div css={containerInStyle}>footer</div>
-  </footer>
+  <React.Fragment>
+    <Container maxWidth="lg">
+      <Typography>آدرس: خیابان ادبجو</Typography>
+    </Container>
+  </React.Fragment>
 )
 
 export default Footer

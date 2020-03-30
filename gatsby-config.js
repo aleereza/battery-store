@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Portfolio Starter`,
-    description: ``,
-    author: `@aleereza`,
+    title: `فروشگاه باتری برخورداری`,
+    description: `Barkhordari Battery Store, Arak, Iran`,
+    author: `@aleerezaa`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

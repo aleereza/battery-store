@@ -32,9 +32,16 @@ function SEO({ description, lang, meta, title }) {
       htmlAttributes={{
         lang,
       }}
+      bodyAttributes={{
+        dir: "rtl",
+      }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
+        {
+          name: `viewport`,
+          content: `minimum-scale=1, initial-scale=1, width=device-width`,
+        },
         {
           name: `description`,
           content: metaDescription,
